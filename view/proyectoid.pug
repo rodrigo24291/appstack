@@ -1,0 +1,31 @@
+extends index
+
+
+block contenido
+    .contenido-principal
+        h1 Nuevo proyecto 
+        form.agregar-proyecto(action=`/tareacreate/${url.url}` method="POST")
+            .campo 
+                label(for="nombre") Nueva tarea: 
+                input(type="text"  name="nombre" id="nombre" placeholder="Nuevo tarea") 
+            .campo.enviar 
+                input(type="submit" value="enviar" class="boton")
+        .contenedor-acciones
+            a(href=`/proyectoeditar/${url.id}` class="boton") editar
+            a#eliminar-proyecto(href=`/proyectoeliminar/${url.id}` class="boton eliminar") eliminar
+
+        .listado-pendientes 
+                ul
+                    if ta.length
+                        each tarea in ta 
+                            li.tarea
+                                p= tarea.nombre
+                                .acciones 
+                                    if tarea.estado
+                                        i.far.fa.check-circle.completo
+                                    else
+                                        i.far.fa.check-circle
+                                    a(href=`/eliminartarea/${tarea.id}`): i.fas.fa-trash 
+
+                    else
+                        p no hay tarea en este proyecto

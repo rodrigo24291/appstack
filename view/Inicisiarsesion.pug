@@ -1,0 +1,27 @@
+html(lang="es")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="/css/normalize.css")
+        link(rel="stylesheet", href="/css/app.css")
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+        title Document
+    body.login 
+        .contenedor-formulario
+            h1 Iniciar sesion 
+            if error
+               p.error.alerta=error.error
+
+            form#formulario.caja.caja-login(method="POST"   action="/autentic")
+                .campo
+                    label(for="email") email 
+                    input(type="email", name="email" placeholder="Tu email" )
+                .campo
+                    label(for="password") pasword 
+                    input(type="password", name="password" placeholder="Tu pasword" )
+                .campo.enviar 
+                    input.boton(type="submit" value="Crear Cuenta")
+                .campo
+                    a(href="/crearcuenta") No estas registrado? Registrate gratis

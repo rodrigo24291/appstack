@@ -1,0 +1,15 @@
+extends index
+
+
+block contenido
+    .contenido-principal
+        h1 Nuevo proyecto 
+
+         form.agregar-proyecto(action=`/proyecto-actualizar/${id.id}` method="POST")
+            .campo 
+                label(for="nombre") Nuevo proyecto: 
+                input(type="text" value=`${id.nombre}` name="nombre" id="nombre" placeholder="Nuevo proyecto") 
+            .campo.enviar 
+
+                input(type="submit" value="enviar" class="boton")
+            
